@@ -1,378 +1,143 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Hybrid Games - Registration</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,900&family=Caveat:wght@700&family=Cairo:wght@600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background-color: #0a0a0a; color: #ffffff; font-family: 'Cairo', sans-serif; min-height: 100vh; padding-bottom: 50px; }
-    .top-bar { background-color: #ccff00; color: #000000; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 900; text-align: center; padding: 8px 10px; letter-spacing: 1px; text-transform: uppercase; }
-    .wrapper { padding: 30px 15px; display: flex; justify-content: center; align-items: center; }
-    .container { width: 100%; max-width: 650px; background: #121212; border: 1px solid #222222; border-radius: 16px; padding: 35px 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
-    .header { text-align: center; margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid #222222; }
-    .logo-box { display: inline-flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 8px; }
-    .h-logo-svg { width: 38px; height: 38px; }
-    .brand-title-wrap { text-align: right; }
-    .brand-title { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 900; letter-spacing: 1.5px; color: #ffffff; line-height: 1; text-transform: uppercase; }
-    .brand-slogan { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; color: #888888; text-transform: uppercase; margin-top: 4px; }
-    .hero-title { font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 900; letter-spacing: 1.5px; color: #ffffff; margin-top: 15px; text-transform: uppercase; }
-    .badge-tag { display: inline-block; background: rgba(204, 255, 0, 0.08); border: 1px solid #ccff00; color: #ccff00; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; padding: 6px 18px; border-radius: 50px; letter-spacing: 1px; margin-top: 15px; text-transform: uppercase; }
-    .section-title { display: flex; justify-content: space-between; align-items: center; background: #1a1a1a; padding: 12px 18px; border-radius: 8px; margin-top: 30px; margin-bottom: 20px; border-right: 4px solid #ccff00; }
-    .section-title .en { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 900; color: #ffffff; letter-spacing: 1px; text-transform: uppercase; }
-    .section-title .ar { font-size: 13px; font-weight: 700; color: #888888; }
-    .form-group { margin-bottom: 20px; text-align: right; }
-    label { display: block; margin-bottom: 8px; }
-    label .label-en { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 900; color: #ffffff; letter-spacing: 0.5px; display: block; text-transform: uppercase; }
-    label .label-ar { font-size: 11px; color: #777777; display: block; margin-top: 2px; }
-    input[type="text"], input[type="email"], input[type="tel"], select, input[type="file"] { width: 100%; padding: 14px 16px; background: #080808; border: 1px solid #282828; color: #ffffff; border-radius: 8px; font-size: 13px; font-family: 'Montserrat', 'Cairo', sans-serif; outline: none; transition: all 0.2s; }
-    input:focus, select:focus { border-color: #ccff00; box-shadow: 0 0 10px rgba(204, 255, 0, 0.2); }
-    select option { background: #121212; color: #fff; }
-    .promo-input-wrap { display: flex; gap: 10px; }
-    .btn-apply-promo { background: #222222; color: #ccff00; border: 1px solid #ccff00; padding: 0 20px; border-radius: 8px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 12px; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
-    .btn-apply-promo:hover { background: #ccff00; color: #000000; }
-    .fee-box { display: none; background: rgba(204, 255, 0, 0.05); border: 1px dashed #ccff00; border-radius: 8px; padding: 15px; margin-top: 15px; text-align: center; direction: ltr; }
-    .fee-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #888888; letter-spacing: 1px; text-transform: uppercase; }
-    .fee-amount-wrap { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 6px; flex-wrap: wrap; }
-    .fee-original { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: #777777; text-decoration: line-through; }
-    .fee-discounted { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 900; color: #ccff00; }
-    .fee-badge { background: #ff3b30; color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 900; padding: 3px 8px; border-radius: 4px; letter-spacing: 1px; }
-    .instapay-card { background: #3b185f; border: 1px solid #5c2596; border-radius: 12px; padding: 20px 16px; margin-bottom: 20px; text-align: center; direction: ltr; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
-    .instapay-logo { display: flex; align-items: center; justify-content: center; gap: 12px; font-family: 'Montserrat', sans-serif; margin-bottom: 12px; }
-    .logo-icon { width: 44px; height: 44px; background: linear-gradient(135deg, #FF7A00, #E63946); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 13px; box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3); letter-spacing: 0.5px; }
-    .logo-text { font-size: 26px; font-weight: 900; color: #ffffff; font-style: italic; letter-spacing: 1px; }
-    .logo-text span { color: #FF7A00; }
-    .instapay-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 900; color: #e0b0ff; letter-spacing: 1px; margin-bottom: 6px; }
-    .instapay-handle { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800; color: #ffffff; margin-bottom: 15px; letter-spacing: 0.5px; }
-    .instapay-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #ccff00; color: #000000; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 900; padding: 10px 22px; border-radius: 50px; text-decoration: none; letter-spacing: 1px; transition: all 0.2s ease; }
-    .instapay-link-btn:hover { background: #b8e600; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(204, 255, 0, 0.3); }
-    .button-group { display: flex; gap: 12px; margin-top: 35px; }
-    .btn { flex: 1; padding: 16px; border: none; border-radius: 50px; font-family: 'Montserrat', 'Cairo', sans-serif; font-size: 13px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
-    .btn-submit { background: #ccff00; color: #000000; }
-    .btn-submit:hover { background: #b8e600; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(204, 255, 0, 0.3); }
-    .btn-reset { background: #222222; color: #ffffff; }
-    .btn-reset:hover { background: #333333; }
-    .custom-alert { display: none; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-size: 13px; font-weight: 700; text-align: center; }
-    .alert-error { background: rgba(255, 59, 48, 0.15); color: #ff3b30; border: 1px solid #ff3b30; }
-    .alert-info { background: rgba(10, 132, 255, 0.15); color: #0a84ff; border: 1px solid #0a84ff; }
-    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(10px); z-index: 1000; justify-content: center; align-items: center; padding: 15px; overflow-y: auto; }
-    .modal-card { background: #090a0c; border: 1px solid #222; border-radius: 12px; max-width: 480px; width: 100%; padding: 40px 25px 30px 25px; text-align: center; box-shadow: 0 0 50px rgba(0,0,0,0.9); position: relative; direction: ltr; }
-    .check-circle { width: 65px; height: 65px; margin: 0 auto 20px auto; border-radius: 50%; border: 3px solid #ccff00; display: flex; align-items: center; justify-content: center; }
-    .modal-header-logo { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 900; letter-spacing: 2px; color: #ffffff; margin-bottom: 25px; }
-    .modal-header-logo span { display: block; font-size: 8px; color: #888; letter-spacing: 2px; margin-top: 3px; }
-    .congrats-title { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 900; font-style: italic; color: #ffffff; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
-    .registered-sub { font-family: 'Montserrat', sans-serif; font-size: 13px; color: #cccccc; margin-bottom: 5px; }
-    .modal-team-display { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; color: #ffffff; background: rgba(204, 255, 0, 0.1); border: 1px dashed #ccff00; padding: 8px 16px; border-radius: 8px; display: inline-block; margin: 8px 0 15px 0; text-transform: uppercase; }
-    .games-title-green { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 900; color: #ccff00; letter-spacing: 1.5px; margin-bottom: 25px; text-transform: uppercase; }
-    .journey-text { font-family: 'Montserrat', sans-serif; font-size: 12px; color: #888888; margin-bottom: 5px; }
-    .action-words { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; color: #ffffff; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; }
-    .community-tag { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; color: #666666; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
-    .see-you-floor { font-family: 'Caveat', cursive; font-size: 38px; color: #ccff00; margin-bottom: 20px; line-height: 1; }
-    .insta-link-wrap { margin-bottom: 25px; }
-    .insta-btn { display: inline-flex; align-items: center; gap: 8px; background: rgba(204, 255, 0, 0.1); border: 1px solid #ccff00; color: #ccff00; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800; padding: 8px 20px; border-radius: 50px; text-decoration: none; transition: all 0.2s; }
-    .insta-btn:hover { background: #ccff00; color: #000; }
-    .btn-close-modal { background: #ccff00; color: #000000; border: none; padding: 14px 40px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 900; cursor: pointer; letter-spacing: 1.5px; text-transform: uppercase; transition: transform 0.2s; }
-    .btn-close-modal:hover { transform: scale(1.03); }
-    .footer-text { text-align: center; margin-top: 30px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; color: #555555; letter-spacing: 2px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hybrid Games - Registration</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: #121212; color: #fff; margin: 0; padding: 20px; text-align: right; }
+        .container { max-width: 500px; margin: 0 auto; background: #1e1e1e; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        h2 { text-align: center; color: #ccff00; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, select, button { width: 100%; padding: 10px; margin-top: 5px; border-radius: 6px; border: 1px solid #333; background: #2a2a2a; color: #fff; box-sizing: border-box; }
+        button { background: #ccff00; color: #000; font-weight: bold; margin-top: 20px; cursor: pointer; border: none; }
+        button:disabled { background: #555; cursor: not-allowed; }
+        .instapay { background: #262626; border: 1px dashed #ccff00; padding: 10px; border-radius: 6px; text-align: center; margin-top: 15px; }
+        #status { text-align: center; margin-top: 15px; font-weight: bold; }
+    </style>
 </head>
 <body>
 
-<div class="top-bar">OFFICIAL INVITATION • 6 OCTOBER CITY, GIZA</div>
+<div class="container">
+    <h2>THE HYBRID GAMES</h2>
+    <p style="text-align:center; color:#bbb;">استمارة التسجيل الرسمية</p>
 
-<div class="wrapper">
-  <div class="container">
-    <div class="header">
-      <div class="logo-box">
-        <svg class="h-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M25 10 L42 10 L30 90 L13 90 Z" fill="#ffffff"/>
-          <path d="M68 10 L85 10 L73 90 L56 90 Z" fill="#ffffff"/>
-          <path d="M30 42 L71 42 L67 58 L26 58 Z" fill="#ffffff"/>
-        </svg>
-        <div class="brand-title-wrap">
-          <div class="brand-title">THE HYBRID GAMES</div>
-          <div class="brand-slogan">.DIFFERENT DISCIPLINES. ONE COMMUNITY</div>
-        </div>
-      </div>
-      <div class="hero-title">THE CROSSFIT BOXES</div>
-      <div class="badge-tag">OFFICIAL REGISTRATION FORM</div>
-    </div>
+    <form id="regForm">
+        <label>الاسم بالكامل *</label>
+        <input type="text" id="athleteName" required>
 
-    <div id="alertBox" class="custom-alert"></div>
+        <label>السن *</label>
+        <input type="number" id="age" required>
 
-    <form id="registrationForm">
-      <div class="section-title"><span class="ar">بيانات الجيم</span><span class="en">1. BOX / GYM INFORMATION</span></div>
-      <div class="form-group">
-        <label><span class="label-en">* BOX / GYM NAME</span><span class="label-ar">اسم الـ Box أو الجيم</span></label>
-        <input type="text" id="boxName" name="boxName" required placeholder="e.g. CrossFit Zone">
-      </div>
-      <div class="form-group">
-        <label><span class="label-en">* WHATSAPP / PHONE NUMBER</span><span class="label-ar">رقم الواتساب أو الهاتف</span></label>
-        <input type="tel" id="phone" name="phone" required placeholder="01xxxxxxxxx">
-      </div>
-      <div class="form-group">
-        <label><span class="label-en">* EMAIL ADDRESS</span><span class="label-ar">البريد الإلكتروني</span></label>
-        <input type="email" id="email" name="email" required placeholder="name@domain.com">
-      </div>
-
-      <div class="section-title"><span class="ar">الفئة المشاركة والأسعار</span><span class="en">2. CATEGORY & FEES</span></div>
-      <div class="form-group">
-        <label><span class="label-en">* SELECT CATEGORY</span><span class="label-ar">اختر الفئة المناسبة</span></label>
-        <select id="category" name="category" required>
-          <option value="">-- Select Category --</option>
-          <option value="Men Elite">Men Elite (رجال محترفون)</option>
-          <option value="Women Elite">Women Elite (سيدات محترفات)</option>
-          <option value="Men Scaled">Men Scaled (رجال مستوى متوسط)</option>
-          <option value="Women Scaled">Women Scaled (سيدات مستوى متوسط)</option>
-          <option value="Mixed Scaled">Mixed Scaled (فريق: 1 male + 1 female)</option>
-          <option value="Men Beginner">Men Beginner (&lt; 2 yrs exp)</option>
-          <option value="Women Beginner">Women Beginner (&lt; 2 yrs exp)</option>
-          <option value="Boys Juniors">Boys Juniors (Under 14)</option>
-          <option value="Girls Juniors">Girls Juniors (Under 14)</option>
+        <label>مقاس הـ T-Shirt *</label>
+        <select id="tshirt" required>
+            <option value="">اختر المقاس</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
         </select>
-      </div>
 
-      <div class="form-group">
-        <label><span class="label-en">PROMO CODE (OPTIONAL)</span><span class="label-ar">كود الخصم (اختياري)</span></label>
-        <div class="promo-input-wrap">
-          <input type="text" id="promoCode" name="promoCode" placeholder="" style="text-transform: uppercase;">
-          <button type="button" class="btn-apply-promo" id="applyPromoBtn">APPLY</button>
-        </div>
-      </div>
+        <label>اسم الفريق (إن وجد)</label>
+        <input type="text" id="teamName">
 
-      <div id="feeBox" class="fee-box">
-        <div class="fee-title">TOTAL DUE / المبلغ المطلوب سداده</div>
-        <div class="fee-amount-wrap">
-          <span id="originalFee" class="fee-original"></span>
-          <span id="discountedFee" class="fee-discounted"></span>
-          <span id="feeBadge" class="fee-badge">15% OFF (EARLY BIRD)</span>
-        </div>
-      </div>
+        <label>اسم الجيم / الـ Box *</label>
+        <input type="text" id="boxName" required>
 
-      <div class="section-title"><span class="ar">بيانات الفريق واللاعب</span><span class="en">3. TEAM & ATHLETE DETAILS</span></div>
-      <div class="form-group">
-        <label><span class="label-en">ATHLETE TEAM NAME</span><span class="label-ar">اسم فريق اللاعب (اختياري / إن وجد)</span></label>
-        <input type="text" id="teamName" name="teamName" placeholder="e.g. Zone Warriors">
-      </div>
-      <div class="form-group">
-        <label><span class="label-en">* ATHLETE FULL NAME</span><span class="label-ar">اسم اللاعب بالكامل</span></label>
-        <input type="text" id="athleteName" name="athleteName" required placeholder="Athlete Full Name">
-      </div>
-      <div class="form-group">
-        <label><span class="label-en">* AGE</span><span class="label-ar">السن</span></label>
-        <input type="text" id="age" name="age" required placeholder="e.g. 24">
-      </div>
-      <div class="form-group">
-        <label><span class="label-en">* T-SHIRT SIZE</span><span class="label-ar">مقاس التيشيرت</span></label>
-        <select id="tshirt" name="tshirt" required>
-          <option value="S">Small (S)</option>
-          <option value="M">Medium (M)</option>
-          <option value="L">Large (L)</option>
-          <option value="XL">X-Large (XL)</option>
-          <option value="XXL">2X-Large (XXL)</option>
+        <label>رقم الواتساب *</label>
+        <input type="tel" id="phone" required>
+
+        <label>البريد الإلكتروني *</label>
+        <input type="email" id="email" required>
+
+        <label>الفئة المشاركة *</label>
+        <select id="category" required>
+            <option value="">اختر الفئة</option>
+            <option value="Scaled">Scaled</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Rx">Rx</option>
+            <option value="Masters">Masters</option>
         </select>
-      </div>
 
-      <div class="section-title"><span class="ar">إيصال الدفع</span><span class="en">4. PAYMENT RECEIPT</span></div>
-      <div class="instapay-card">
-        <div class="instapay-logo">
-          <div class="logo-icon"><span>IPN</span></div>
-          <div class="logo-text">INSTA<span>PAY</span></div>
+        <div class="instapay">
+            <p style="margin:0; font-size: 14px;">الدفع عبر InstaPay على العنوان:</p>
+            <strong style="color: #ccff00;">kabdalla93_@instapay</strong>
         </div>
-        <div class="instapay-title">PAYMENT VIA INSTAPAY / تحويل عبر إنستا باي</div>
-        <div class="instapay-handle">kabdalla93_@instapay</div>
-        <a href="https://ipn.eg/S/kabdalla93_/instapay/5ZfJnR" target="_blank" class="instapay-link-btn">
-          <span>CLICK TO PAY WITH INSTAPAY</span> ↗
-        </a>
-      </div>
 
-      <div class="form-group">
-        <label><span class="label-en">* UPLOAD RECEIPT (IMAGE / PDF)</span><span class="label-ar">ارفق صورة أو ملف إيصال التحويل</span></label>
-        <input type="file" id="receiptFile" name="receiptFile" accept="image/*,application/pdf" required>
-      </div>
+        <label>صورة إيصال التحويل *</label>
+        <input type="file" id="receipt" accept="image/*" required>
 
-      <div class="button-group">
-        <button type="submit" class="btn btn-submit" id="submitBtn">REGISTER NOW</button>
-        <button type="button" class="btn btn-reset" id="resetBtn">RESET</button>
-      </div>
+        <button type="submit" id="submitBtn">تأكيد التسجيل</button>
     </form>
 
-    <div class="footer-text">SEE YOU THERE | @THEHYBRIDGAMES.EG</div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="successModal">
-  <div class="modal-card">
-    <div class="modal-header-logo">THE HYBRID GAMES<span>DIFFERENT DISCIPLINES. ONE COMMUNITY.</span></div>
-    <div class="check-circle">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ccff00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-    </div>
-    <div class="congrats-title">CONGRATULATIONS!</div>
-    <div class="registered-sub">You’re officially registered for</div>
-    <div class="games-title-green">THE HYBRID GAMES 2026</div>
-    <div id="modalTeamNameDisplay" class="modal-team-display" style="display:none;"></div>
-    <div class="journey-text">Your journey starts now.</div>
-    <div class="action-words">COMPETE. PUSH. CONQUER.</div>
-    <div class="community-tag">DIFFERENT DISCIPLINES. ONE COMMUNITY.</div>
-    <div class="see-you-floor">See you on the floor.</div>
-    <div class="insta-link-wrap">
-      <a href="https://www.instagram.com/thehybridgames.eg" target="_blank" class="insta-btn"><span>FOLLOW US ON INSTAGRAM</span> 📸</a>
-    </div>
-    <button class="btn-close-modal" id="closeModalBtn">DONE</button>
-  </div>
+    <div id="status"></div>
 </div>
 
 <script>
-  // 🔗 ضع رابط الـ Web App الخاص بك من Google Apps Script هنا:
-  const SCRIPT_URL = "ضع_رابط_WEB_APP_URL_هنا";
+    // ⚠️ استبدل الرابط أدناه برابط الـ Web App المنسوخ من Google Apps Script
+    const SCRIPT_URL = "استبدل_هذا_النص_برابط_GOOGLE_WEB_APP_URL";
 
-  var basePrices = {
-    "Men Elite": { original: 8000, early: 6800 },
-    "Women Elite": { original: 8000, early: 6800 },
-    "Men Scaled": { original: 6000, early: 5100 },
-    "Women Scaled": { original: 6000, early: 5100 },
-    "Mixed Scaled": { original: 6000, early: 5100 },
-    "Men Beginner": { original: 5000, early: 4250 },
-    "Women Beginner": { original: 5000, early: 4250 },
-    "Boys Juniors": { original: 2000, early: 1700 },
-    "Girls Juniors": { original: 2000, early: 1700 }
-  };
+    document.getElementById('regForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const status = document.getElementById('status');
+        btn.disabled = true;
+        status.innerText = "جاري إرسال البيانات والملف...";
+        status.style.color = "#fff";
 
-  var promoApplied = false;
+        try {
+            const fileInput = document.getElementById('receipt');
+            let receiptBase64 = "";
+            let receiptName = "";
 
-  function updateFeeDisplay() {
-    var category = document.getElementById('category').value;
-    var feeBox = document.getElementById('feeBox');
-    var originalFee = document.getElementById('originalFee');
-    var discountedFee = document.getElementById('discountedFee');
-    var feeBadge = document.getElementById('feeBadge');
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                receiptName = file.name;
+                receiptBase64 = await new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(file);
+                });
+            }
 
-    if (basePrices[category]) {
-      var item = basePrices[category];
-      var finalPrice = promoApplied ? Math.round(item.early * 0.95) : item.early;
-      feeBadge.innerText = promoApplied ? "15% + 5% EXTRA PROMO OFF" : "15% OFF (EARLY BIRD)";
-      originalFee.innerText = item.original.toLocaleString() + " EGP";
-      discountedFee.innerText = finalPrice.toLocaleString() + " EGP";
-      feeBox.style.display = 'block';
-    } else {
-      feeBox.style.display = 'none';
-    }
-  }
+            const payload = {
+                athleteName: document.getElementById('athleteName').value,
+                age: document.getElementById('age').value,
+                tshirt: document.getElementById('tshirt').value,
+                teamName: document.getElementById('teamName').value,
+                boxName: document.getElementById('boxName').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                category: document.getElementById('category').value,
+                receiptBase64: receiptBase64,
+                receiptName: receiptName
+            };
 
-  document.getElementById('category').addEventListener('change', updateFeeDisplay);
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            });
 
-  document.getElementById('applyPromoBtn').addEventListener('click', function() {
-    var code = document.getElementById('promoCode').value.trim();
-    var category = document.getElementById('category').value;
-    if (!category) { showAlert('يرجى اختيار الفئة التنافسية أولاً قبل إدخال البرومو كود.', 'error'); return; }
+            const resData = await response.json();
 
-    if (code === "Games5X") {
-      promoApplied = true;
-      updateFeeDisplay();
-      showAlert('تم تطبيق خصم البرومو كود (Games5X - 5% إضافية) بنجاح! 🎉', 'info');
-    } else if (code === "") {
-      showAlert('يرجى كتابة البرومو كود أولاً.', 'error');
-    } else {
-      showAlert('البرومو كود غير صحيح أو منتهي الصلاحية.', 'error');
-    }
-  });
-
-  function showAlert(message, type) {
-    var alertBox = document.getElementById('alertBox');
-    alertBox.className = 'custom-alert alert-' + type;
-    alertBox.innerHTML = message;
-    alertBox.style.display = 'block';
-  }
-
-  function hideAlert() { document.getElementById('alertBox').style.display = 'none'; }
-
-  function showSuccessModal(teamName, athleteName) {
-    hideAlert();
-    var displayBox = document.getElementById('modalTeamNameDisplay');
-    displayBox.innerText = teamName.trim() !== "" ? "TEAM: " + teamName : "ATHLETE: " + athleteName;
-    displayBox.style.display = "inline-block";
-    document.getElementById('successModal').style.display = 'flex';
-  }
-
-  document.getElementById('closeModalBtn').addEventListener('click', function() {
-    document.getElementById('successModal').style.display = 'none';
-  });
-
-  document.getElementById('resetBtn').addEventListener('click', function() {
-    document.getElementById('registrationForm').reset();
-    document.getElementById('feeBox').style.display = 'none';
-    promoApplied = false;
-    showAlert('Form cleared successfully / تم تفريغ الخانات بنجاح.', 'info');
-    setTimeout(hideAlert, 3000);
-  });
-
-  // تحويل الملف لـ Base64 لسهولة إرساله عبر API
-  function fileToBase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = error => reject(error);
+            if (resData.status === "success") {
+                status.innerText = "تم التسجيل بنجاح! شكرًا لمشاركتك.";
+                status.style.color = "#ccff00";
+                document.getElementById('regForm').reset();
+            } else {
+                throw new Error(resData.message || "حدث خطأ أثناء الحفظ");
+            }
+        } catch (err) {
+            status.innerText = "فشل الإرسال، يرجى المحاولة لاحقًا.";
+            status.style.color = "#ff4d4d";
+            console.error(err);
+        } finally {
+            btn.disabled = false;
+        }
     });
-  }
-
-  document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    var submitBtn = document.getElementById('submitBtn');
-    var teamNameVal = document.getElementById('teamName').value;
-    var athleteNameVal = document.getElementById('athleteName').value;
-    var receiptFileInput = document.getElementById('receiptFile').files[0];
-
-    submitBtn.disabled = true;
-    submitBtn.innerText = 'SUBMITTING...';
-    showAlert('جاري حفظ البيانات ورفع الإيصال... / Processing & Uploading...', 'info');
-
-    try {
-      let receiptBase64 = "";
-      let receiptName = "";
-
-      if (receiptFileInput) {
-        receiptBase64 = await fileToBase64(receiptFileInput);
-        receiptName = receiptFileInput.name;
-      }
-
-      const payload = {
-        boxName: document.getElementById('boxName').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        category: document.getElementById('category').value,
-        teamName: teamNameVal,
-        athleteName: athleteNameVal,
-        age: document.getElementById('age').value,
-        tshirt: document.getElementById('tshirt').value,
-        receiptBase64: receiptBase64,
-        receiptName: receiptName
-      };
-
-      const response = await fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify(payload)
-      });
-
-      const resData = await response.json();
-
-      if (resData.status === "success") {
-        submitBtn.disabled = false;
-        submitBtn.innerText = 'REGISTER NOW';
-        document.getElementById('registrationForm').reset();
-        document.getElementById('feeBox').style.display = 'none';
-        promoApplied = false;
-        showSuccessModal(teamNameVal, athleteNameVal);
-      } else {
-        throw new Error(resData.message || "حدث خطأ أثناء حفظ البيانات");
-      }
-    } catch (err) {
-      submitBtn.disabled = false;
-      submitBtn.innerText = 'REGISTER NOW';
-      showAlert('حدث خطأ أثناء الإرسال: ' + err.message, 'error');
-    }
-  });
 </script>
+
 </body>
 </html>
