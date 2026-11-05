@@ -229,15 +229,15 @@
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbypNNR97J4xpAlxzIpLVUAbQ6hci8X2CphZ3k4axeSWd4cmeUfR7Hz_xo_jMpZHZazc/exec";
 
 var basePrices = {
-    "Men Elite": { original: 10000, early: 8500 },
-    "Women Elite": { original: 10000, early: 8500 },
-    "Men Scaled": { original: 8000, early: 6800 },
-    "Women Scaled": { original: 8000, early: 6800 },
-    "Mixed Scaled": { original: 8000, early: 6800 },
-    "Men Beginner": { original: 7000, early: 5950 },
-    "Women Beginner": { original: 7000, early: 5950 },
-    "Boys Juniors": { original: 2000, early: 1700 },
-    "Girls Juniors": { original: 2000, early: 1700 }
+    "Men Elite": { original: 10000, early: 9000 },
+    "Women Elite": { original: 10000, early: 9000 },
+    "Men Scaled": { original: 8000, early: 7200 },
+    "Women Scaled": { original: 8000, early: 7200 },
+    "Mixed Scaled": { original: 8000, early: 7200 },
+    "Men Beginner": { original: 7000, early: 6300 },
+    "Women Beginner": { original: 7000, early: 6300 },
+    "Boys Juniors": { original: 2000, early: 1800 },
+    "Girls Juniors": { original: 2000, early: 1800 }
   };
 
   var promoApplied = false;
@@ -252,7 +252,7 @@ var basePrices = {
     if (basePrices[category]) {
       var item = basePrices[category];
       var finalPrice = promoApplied ? Math.round(item.early * 0.95) : item.early;
-      feeBadge.innerText = promoApplied ? "15% + 5% EXTRA PROMO OFF" : "15% OFF (EARLY BIRD)";
+      feeBadge.innerText = promoApplied ? "10% + 5% EXTRA PROMO OFF" : "10% OFF (EARLY BIRD)";
       originalFee.innerText = item.original.toLocaleString() + " EGP";
       discountedFee.innerText = finalPrice.toLocaleString() + " EGP";
       feeBox.style.display = 'block';
